@@ -1,0 +1,280 @@
+{
+  "company": [
+    {
+      "name": "Spotify",
+      "companyLogoUrl": "assets/company_logos/spotify.png",
+      "reviews": [
+        {
+          "position": "",
+          "yearsOfExp": 0,
+          "title": "",
+          "description": "",
+          "rating": 0,
+          "pros": [
+            "",
+            "",
+            ""
+          ],
+          "cons": [
+            "",
+            ""
+          ]
+        }
+      ],
+      "jobListing": [
+        {
+          "companyName": "Spotify",
+          "logoUrl": "assets/company_logos/spotify.png",
+          "position": "UI Design Lead",
+          "industry": "",
+          "category": "UI/UX Design",
+          "subCategory": "Graphics Design",
+          "location": "Toronto, Canada",
+          "salary": 1200.00,
+          "applications": 158,
+          "jobType": "full time",
+          "datePosted": "2022-04-11 15:55:00",
+          "requirements": [
+            "Exceptional communication skills and team working skill",
+            "Creative with an eye for shape and colour",
+            "Know the principal of animation and you can create high prtotypes",
+            "Must know about these apps: Figma,Xd & Sketch"
+          ],
+          "jobDescription": "",
+          "responsibilities": [
+            "",
+            ""
+          ],
+          "schedule": "",
+          "perks": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "companyName": "Spotify",
+          "logoUrl": "assets/company_logos/spotify.png",
+          "position": "UI Design Lead",
+          "industry": "",
+          "category": "UI/UX Design",
+          "subCategory": "Graphics Design",
+          "location": "Toronto, Canada",
+          "salary": 1200.00,
+          "applications": 28,
+          "jobType": "part time",
+          "datePosted": "2022-04-26 15:55:00",
+          "requirements": [
+            "Exceptional communication skills and team working skill",
+            "Creative with an eye for shape and colour",
+            "Know the principal of animation and you can create high prtotypes",
+            "Must know about these apps: Figma,Xd & Sketch"
+          ],
+          "jobDescription": "",
+          "responsibilities": [
+            "",
+            ""
+          ],
+          "schedule": "",
+          "perks": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Facebook",
+      "companyLogoUrl": "assets/company_logos/facebook.png",
+      "reviews": [
+        {
+          "position": "",
+          "yearsOfExp": 0,
+          "title": "",
+          "description": "",
+          "rating": 0,
+          "pros": [
+            "",
+            "",
+            ""
+          ],
+          "cons": [
+            "",
+            ""
+          ]
+        }
+      ],
+      "jobListing": [
+        {
+          "companyName": "Facebook",
+          "logoUrl": "assets/company_logos/facebook.png",
+          "position": "Product Designer",
+          "industry": "",
+          "category": "R&D",
+          "subCategory": "Product Design",
+          "location": "Toronto, Canada",
+          "salary": 1200.00,
+          "applications": 15,
+          "jobType": "remote",
+          "datePosted": "2022-05-23 15:55:00",
+          "requirements": [
+            "Exceptional communication skills and team working skill",
+            "Creative with an eye for shape and colour",
+            "Know the principal of animation and you can create high prtotypes",
+            "Must know about these apps: Figma,Xd & Sketch"
+          ],
+          "jobDescription": "",
+          "responsibilities": [
+            "",
+            ""
+          ],
+          "schedule": "",
+          "perks": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "companyName": "Facebook",
+          "logoUrl": "assets/company_logos/facebook.png",
+          "position": "UI Design Lead",
+          "industry": "",
+          "category": "UI/UX Design",
+          "subCategory": "Graphics Design",
+          "location": "Toronto, Canada",
+          "salary": 4500.00,
+          "applications": 205,
+          "jobType": "contract",
+          "datePosted": "2022-03-15 15:55:00",
+          "requirements": [
+            "Exceptional communication skills and team working skill",
+            "Creative with an eye for shape and colour",
+            "Know the principal of animation and you can create high prtotypes",
+            "Must know about these apps: Figma,Xd & Sketch"
+          ],
+          "jobDescription": "",
+          "responsibilities": [
+            "",
+            ""
+          ],
+          "schedule": "",
+          "perks": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dribbble",
+      "companyLogoUrl": "assets/company_logos/dribbble.png",
+      "reviews": [
+        {
+          "position": "",
+          "yearsOfExp": 0,
+          "title": "",
+          "description": "",
+          "rating": 0,
+          "pros": [
+            "",
+            "",
+            ""
+          ],
+          "cons": [
+            "",
+            ""
+          ]
+        }
+      ],
+      "jobListing": [
+        {
+          "companyName": "Dribbble",
+          "logoUrl": "assets/company_logos/dribbble.png",
+          "position": "Product Designer",
+          "industry": "",
+          "category": "R&D",
+          "subCategory": "Product Design",
+          "location": "New York, USA",
+          "salary": 6000.00,
+          "applications": 51,
+          "jobType": "full time",
+          "datePosted": "2022-02-23 15:55:00",
+          "requirements": [
+            "Exceptional communication skills and team working skill",
+            "Creative with an eye for shape and colour",
+            "Know the principal of animation and you can create high prtotypes",
+            "Must know about these apps: Figma,Xd & Sketch"
+          ],
+          "jobDescription": "",
+          "responsibilities": [
+            "",
+            ""
+          ],
+          "schedule": "",
+          "perks": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Google",
+      "companyLogoUrl": "assets/company_logos/google.png",
+      "reviews": [
+        {
+          "position": "",
+          "yearsOfExp": 0,
+          "title": "",
+          "description": "",
+          "rating": 0,
+          "pros": [
+            "",
+            "",
+            ""
+          ],
+          "cons": [
+            "",
+            ""
+          ]
+        }
+      ],
+      "jobListing": [
+        {
+          "companyName": "Google",
+          "logoUrl": "assets/company_logos/google.png",
+          "position": "Senior UX Designer",
+          "industry": "",
+          "category": "UX/UI Design",
+          "subCategory": "Graphics Design",
+          "location": "New York, USA",
+          "salary": 4500.00,
+          "applications": 81,
+          "jobType": "part time",
+          "datePosted": "2022-04-23 15:55:00",
+          "requirements": [
+            "Exceptional communication skills and team working skill",
+            "Creative with an eye for shape and colour",
+            "Know the principal of animation and you can create high prtotypes",
+            "Must know about these apps: Figma,Xd & Sketch"
+          ],
+          "jobDescription": "",
+          "responsibilities": [
+            "",
+            ""
+          ],
+          "schedule": "",
+          "perks": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  ]
+}
