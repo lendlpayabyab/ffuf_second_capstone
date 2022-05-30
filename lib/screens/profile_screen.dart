@@ -7,7 +7,6 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // todo: make a profile screen
     return Container(
-      color: Colors.green,
     );
   }
 }

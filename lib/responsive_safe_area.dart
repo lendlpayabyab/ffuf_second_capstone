@@ -18,6 +18,7 @@ class ResponsiveSafeArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      bottom: false,
       child: LayoutBuilder(
         builder: (context, constraints){
           return responsiveBuilder(

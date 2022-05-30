@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../models/company_info.dart';
-import '../widgets/text_builder.dart';
 import '../widgets/recent_job_card_builder.dart';
 
 class HomeRecentView extends StatefulWidget {
@@ -23,6 +22,7 @@ class HomeRecentView extends StatefulWidget {
 class _HomeRecentViewState extends State<HomeRecentView> {
   final jobListings = <JobListing>[];
 
+  @override
   void initState(){
     for (var element in widget.companyList) {
       for (var subElement in element.jobListing){
@@ -35,41 +35,76 @@ class _HomeRecentViewState extends State<HomeRecentView> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(5),
+    return SizedBox(
+      width: widget.width,
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              textHeader1(
-                text: 'Recent Postings',
-                color: Color(0xFF1A1D1E),
-              ),
-              Column(
-                children: [
-                  SizedBox(
-                    height: 10,
-                    width: 50,
-                  ),
-                  TextButton(
-                    // todo : enable functionality
-                    onPressed: () {},
-                    child: subText(text: 'Show All'),
-                  ),
-                ],
-              ),
-            ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20,),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Recent Postings',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                TextButton(
+                  // todo : enable functionality
+                  onPressed: () {},
+                  child: Text('Show All',
+                    style: Theme.of(context).textTheme.labelSmall,),
+                ),
+              ],
+            ),
           ),
           SizedBox(
-            height: 5,
-          ),
-          SizedBox(
-            height: widget.height-483,
+            height: widget.height-455,
             child: ListView.separated(
+              padding: EdgeInsets.only(
+                top: 10,
+                left: 20,
+                right: 20,
+                bottom: 40,
+              ),
+              physics: BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
-                return RecentJobCardBuilder(jobListing: jobListings[index]);
+                return InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(50),
+                          topRight: Radius.circular(50),
+                        ),
+                      ),
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (BuildContext context) {
+                        return FractionallySizedBox(
+                          heightFactor: 0.8,
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                height: 4,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFE1E1E1),
+                                  borderRadius: BorderRadius.circular(2),
+                                ),
+                              ),
+                              // todo : job listing view as child
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  child: RecentJobCardBuilder(jobListing: jobListings[index]),
+                );
               },
               separatorBuilder: (context, index){
                 return SizedBox(height: 20,);

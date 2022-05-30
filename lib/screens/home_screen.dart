@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../api/pseudo_service.dart';
 import '../models/company_info.dart';
@@ -20,25 +21,39 @@ class HomeScreen extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<List<Company>> snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           final companyList = snapshot.data ?? [];
-          return ResponsiveSafeArea(
-            builder: (context, height, width) {
+          return Scaffold(
+            extendBody: true,
+            body: ResponsiveSafeArea(builder: (context, height, width) {
               return Container(
-                padding: EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    HomeTopBar(width: width),
-                    SizedBox(height: 20,),
-                    HomeSearchBar(width: width),
-                    Column(
-                      children: [
-                        HomePopularView(width: width, companyList: companyList),
-                        HomeRecentView(height: height, width: width, companyList: companyList),
-                      ],
-                    ),
-                  ],
+                //height: height,
+                padding: EdgeInsets.only(
+                  top: 20,
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      HomeTopBar(width: width),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      HomeSearchBar(width: width),
+                      HomePopularView(
+                        width: width,
+                        companyList: companyList,
+                      ),
+                      Transform(
+                        transform: Matrix4.translationValues(0, -75, 0),
+                        child: HomeRecentView(
+                          height: height,
+                          width: width,
+                          companyList: companyList,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               );
-            }
+            }),
           );
         } else {
           return ResponsiveSafeArea(

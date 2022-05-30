@@ -14,16 +14,17 @@ class HomeSearchBar extends StatelessWidget {
     return Container(
       height: 65,
       width: width,
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Flexible(
             child: TextField(
+              style: Theme.of(context).textTheme.headlineSmall,
               autofocus: false,
               decoration: InputDecoration(
                 hintText: 'Search here...',
-                fillColor: Colors.white,
+                fillColor: Theme.of(context).colorScheme.tertiary,
                 filled: true,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
@@ -41,11 +42,11 @@ class HomeSearchBar extends StatelessWidget {
             height: 54,
             width: 54,
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(15),
             ),
             child: IconButton(
-              icon: Icon(JobGrindr.sliders),
+              icon: Icon(JobGrindrIcons.sliders),
               // todo : enable functionality
               onPressed: () {},
             ),

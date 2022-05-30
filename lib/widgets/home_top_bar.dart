@@ -14,13 +14,13 @@ class HomeTopBar extends StatelessWidget {
     return Container(
       width: width,
       height: 55,
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.all(
                 Radius.circular(12),
               ),
@@ -31,7 +31,7 @@ class HomeTopBar extends StatelessWidget {
               // todo : app drawer for this button
               onPressed: () {},
               icon: Icon(
-                CupertinoIcons.text_justifyleft,
+                Icons.menu_rounded,
                 size: 22,
               ),
             ),

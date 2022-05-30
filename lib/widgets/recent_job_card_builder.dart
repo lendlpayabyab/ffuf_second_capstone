@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/company_info.dart';
-import '../widgets/text_builder.dart';
 
 class RecentJobCardBuilder extends StatelessWidget {
   final JobListing jobListing;
@@ -18,8 +17,15 @@ class RecentJobCardBuilder extends StatelessWidget {
       height: 80,
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.tertiary,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x1A403B4B),
+            blurRadius: 35,
+            offset: Offset(0, 10),
+          ),
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -38,21 +44,24 @@ class RecentJobCardBuilder extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              textHeader2(text: jobListing.position),
-              buildJobType(jobListing),
+              Text(
+                  jobListing.position,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              buildJobType(context, jobListing),
             ],
           ),
           Expanded(child: SizedBox()),
-          subText(
-            text: '${NumberFormat('\$#,##0.00').format(jobListing.salary)}/m',
-            color: Color(0xFF6A6A6A),
+          Text(
+              '${NumberFormat('\$#,##0.00').format(jobListing.salary)}/m',
+            style: Theme.of(context).textTheme.labelMedium,
           ),
         ],
       ),
     );
   }
 
-  Widget buildJobType(JobListing jobListing) {
+  Widget buildJobType(BuildContext context, JobListing jobListing) {
     String jobTypeString;
 
     switch (jobListing.jobType) {
@@ -73,9 +82,9 @@ class RecentJobCardBuilder extends StatelessWidget {
         break;
     }
 
-    return subText(
-      text: jobTypeString,
-      color: Color(0xFF6A6A6A),
+    return Text(
+        jobTypeString,
+      style: Theme.of(context).textTheme.labelSmall,
     );
   }
 }

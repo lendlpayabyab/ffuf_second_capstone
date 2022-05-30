@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../widgets/text_builder.dart';
 import '../models/company_info.dart';
 
 class PopularJobCardBuilder extends StatelessWidget {
@@ -20,8 +19,15 @@ class PopularJobCardBuilder extends StatelessWidget {
       height: 160,
       width: 260,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.tertiary,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x1A000000),
+            blurRadius: 35,
+            offset: Offset(0, 10),
+          ),
+        ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,7 +38,7 @@ class PopularJobCardBuilder extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
                     height: 40,
@@ -43,12 +49,17 @@ class PopularJobCardBuilder extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 5,),
-                  subText(text: jobListing.companyName, color: Color(0xFF6A6A6A)),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    jobListing.companyName,
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
                 ],
               ),
               IconButton(
-                onPressed: (){},
+                onPressed: () {},
                 icon: Icon(
                   CupertinoIcons.heart,
                   size: 20,
@@ -57,13 +68,24 @@ class PopularJobCardBuilder extends StatelessWidget {
               ),
             ],
           ),
-          textHeader2(text: jobListing.position),
+          Text(
+            jobListing.position,
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              TextBuilder(text: '${NumberFormat('\$#,##0.00').format(jobListing.salary)}/m',),
-              SizedBox(width: 5,),
-              subText(text: jobListing.location, color: Theme.of(context).colorScheme.primary),
+              Text(
+                '${NumberFormat('\$#,##0.00').format(jobListing.salary)}/m',
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                jobListing.location,
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
             ],
           )
         ],

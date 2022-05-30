@@ -1,3 +1,4 @@
+import 'package:ffuf_second_capstone/screens/settings_notifications_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -5,6 +6,7 @@ import './screens/splash_screen.dart';
 import './models/tab_manager.dart';
 import './models/settings.dart';
 import './screens/main_screen.dart';
+import './app_theme.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -20,27 +22,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Job Grindr',
-      theme: ThemeData(
-        iconTheme: IconThemeData(
-          color: Color(0xFFFFFFFF),
-        ),
-        fontFamily: 'Poppins',
-        colorScheme: Provider.of<Settings>(context).darkMode
-            ? ColorScheme.dark(
-                primary: Color(0xFF4CA6A8),
-                secondary: Color(0xFFFF4141),
-                background: Color(0xFF303030),
-              )
-            : ColorScheme.light(
-                primary: Color(0xFF4CA6A8),
-                secondary: Color(0xFFFF4141),
-                background: Color(0xFFFBFBFB),
-              ),
-      ),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: Provider.of<Settings>(context).darkMode ? ThemeMode.dark : ThemeMode.light,
       home: SplashScreen(),
       routes: {
         MainScreen.routeName: (context) => MainScreen(),
         MainApp.routeName: (context) => MainApp(),
+        SettingsNotificationScreen.routeName : (context) => SettingsNotificationScreen(),
       },
     );
   }

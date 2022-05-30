@@ -5,7 +5,7 @@ import '../models/company_info.dart';
 class PseudoService {
 
   Future<List<Company>> getCompany() async {
-    await Future.delayed(const Duration(milliseconds: 1000));
+    //await Future.delayed(const Duration(milliseconds: 1000));
     final dataString =
         await _loadAsset('assets/sample_data/sample_company_info.json');
     final Map<String, dynamic> json = jsonDecode(dataString);

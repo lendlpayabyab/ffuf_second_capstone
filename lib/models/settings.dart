@@ -8,6 +8,7 @@ class Settings extends ChangeNotifier{
   bool _call = false;
   bool _darkMode = false;
 
+  bool get newPost => _newPost;
   bool get darkMode => _darkMode;
   bool get gotHired => _gotHired;
   bool get getRejected => _getRejected;
