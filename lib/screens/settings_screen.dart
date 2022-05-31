@@ -1,10 +1,10 @@
-import 'package:ffuf_second_capstone/screens/settings_notifications_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/settings.dart';
+import '../change_notifiers/settings.dart';
 import '../responsive_safe_area.dart';
+import '../screens/settings_notifications_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           body: ResponsiveSafeArea(builder: (context, height, width) {
             return Container(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 40,
                 left: 20,
                 right: 20,
@@ -45,7 +45,7 @@ class SettingsScreen extends StatelessWidget {
                             Navigator.of(context).pushNamed(SettingsNotificationScreen.routeName);
                           },
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(

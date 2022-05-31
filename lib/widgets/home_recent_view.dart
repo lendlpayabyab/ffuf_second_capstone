@@ -40,7 +40,7 @@ class _HomeRecentViewState extends State<HomeRecentView> {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20,),
+            padding: const EdgeInsets.symmetric(horizontal: 20,),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -51,28 +51,33 @@ class _HomeRecentViewState extends State<HomeRecentView> {
                 TextButton(
                   // todo : enable functionality
                   onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                  ),
                   child: Text('Show All',
-                    style: Theme.of(context).textTheme.labelSmall,),
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
                 ),
               ],
             ),
           ),
-          SizedBox(
-            height: widget.height-455,
+          Container(
+            transform: Matrix4.translationValues(0, -15, 0),
+            height: widget.height - 500 < 1 ? 200 : widget.height - 500,
             child: ListView.separated(
-              padding: EdgeInsets.only(
-                top: 10,
+              padding: const EdgeInsets.only(
+                top: 25,
                 left: 20,
                 right: 20,
-                bottom: 40,
+                bottom: 30,
               ),
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
                     showModalBottomSheet(
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50),
@@ -85,14 +90,14 @@ class _HomeRecentViewState extends State<HomeRecentView> {
                           heightFactor: 0.8,
                           child: Column(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
                                 height: 4,
                                 width: 80,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFE1E1E1),
+                                  color: const Color(0xFFE1E1E1),
                                   borderRadius: BorderRadius.circular(2),
                                 ),
                               ),
@@ -107,7 +112,7 @@ class _HomeRecentViewState extends State<HomeRecentView> {
                 );
               },
               separatorBuilder: (context, index){
-                return SizedBox(height: 20,);
+                return const SizedBox(height: 20,);
               },
               itemCount: jobListings.length,
             ),

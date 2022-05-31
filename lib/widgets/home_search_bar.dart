@@ -1,5 +1,5 @@
-import 'package:ffuf_second_capstone/custom/job_grindr_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeSearchBar extends StatelessWidget {
   final double width;
@@ -14,7 +14,7 @@ class HomeSearchBar extends StatelessWidget {
     return Container(
       height: 65,
       width: width,
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -35,7 +35,7 @@ class HomeSearchBar extends StatelessWidget {
               onSubmitted: (_){},
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
           Container(
@@ -46,7 +46,7 @@ class HomeSearchBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
             child: IconButton(
-              icon: Icon(JobGrindrIcons.sliders),
+              icon: SvgPicture.asset('assets/custom_svg_icons/filter.svg'),
               // todo : enable functionality
               onPressed: () {},
             ),

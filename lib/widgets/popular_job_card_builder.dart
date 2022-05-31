@@ -15,13 +15,13 @@ class PopularJobCardBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       height: 160,
       width: 260,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.tertiary,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color(0x1A000000),
             blurRadius: 35,
@@ -49,7 +49,7 @@ class PopularJobCardBuilder extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
@@ -79,7 +79,7 @@ class PopularJobCardBuilder extends StatelessWidget {
                 '${NumberFormat('\$#,##0.00').format(jobListing.salary)}/m',
                 style: Theme.of(context).textTheme.labelLarge,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(

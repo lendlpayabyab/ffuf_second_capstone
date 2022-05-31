@@ -15,11 +15,11 @@ class RecentJobCardBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.tertiary,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color(0x1A403B4B),
             blurRadius: 35,
@@ -37,7 +37,7 @@ class RecentJobCardBuilder extends StatelessWidget {
               image: AssetImage(jobListing.logoUrl),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           Column(
@@ -51,7 +51,7 @@ class RecentJobCardBuilder extends StatelessWidget {
               buildJobType(context, jobListing),
             ],
           ),
-          Expanded(child: SizedBox()),
+          const Expanded(child: SizedBox()),
           Text(
               '${NumberFormat('\$#,##0.00').format(jobListing.salary)}/m',
             style: Theme.of(context).textTheme.labelMedium,

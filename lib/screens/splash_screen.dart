@@ -13,14 +13,14 @@ class SplashScreen extends StatelessWidget {
       body: ResponsiveSafeArea(
         builder: (context, height, width){
           return SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
                   height: 26,
                   child: Row(
-                    children: [
+                    children: const [
                       Image(
                         image: AssetImage(
                           'assets/app_images/app_logo.png',
@@ -29,14 +29,14 @@ class SplashScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Image(
-                  image: AssetImage('assets/app_images/splash.png'),
+                  image: const AssetImage('assets/app_images/splash.png'),
                   height: (height - 380 < 1) ? height/2 : height - 380,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Column(
@@ -57,7 +57,7 @@ class SplashScreen extends StatelessWidget {
                       'and faster with Job Grindr',
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                     SizedBox(
@@ -78,7 +78,7 @@ class SplashScreen extends StatelessWidget {
                               'Let\'s Get Started',
                               style: Theme.of(context).textTheme.titleSmall,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.arrow_forward_rounded,
                               color: Colors.white,
                               size: 20,
@@ -87,7 +87,7 @@ class SplashScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                   ],

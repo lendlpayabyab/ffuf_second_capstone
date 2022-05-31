@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeTopBar extends StatelessWidget {
   final double width;
@@ -14,14 +14,14 @@ class HomeTopBar extends StatelessWidget {
     return Container(
       width: width,
       height: 55,
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.secondary,
-              borderRadius: BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(12),
               ),
             ),
@@ -30,13 +30,10 @@ class HomeTopBar extends StatelessWidget {
             child: IconButton(
               // todo : app drawer for this button
               onPressed: () {},
-              icon: Icon(
-                Icons.menu_rounded,
-                size: 22,
-              ),
+              icon: SvgPicture.asset('assets/custom_svg_icons/sidebar.svg'),
             ),
           ),
-          CircleAvatar(
+          const CircleAvatar(
             radius: 22,
             backgroundImage: AssetImage('assets/profile_images/asdsd.jpg'),
           ),

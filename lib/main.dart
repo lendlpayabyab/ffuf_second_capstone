@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './screens/splash_screen.dart';
-import './models/tab_manager.dart';
-import './models/settings.dart';
+import 'change_notifiers/tab_manager.dart';
+import 'change_notifiers/settings.dart';
 import './screens/main_screen.dart';
 import './app_theme.dart';
 

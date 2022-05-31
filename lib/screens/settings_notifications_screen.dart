@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import '../models/settings.dart';
+import '../change_notifiers/settings.dart';
 import '../responsive_safe_area.dart';
 
 class SettingsNotificationScreen extends StatelessWidget {
@@ -18,7 +18,7 @@ class SettingsNotificationScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             leading: IconButton(
-              icon: Icon(CupertinoIcons.back),
+              icon: const Icon(CupertinoIcons.back),
               onPressed: () => Navigator.of(context).pop(),
             ),
             title: Text(
@@ -28,11 +28,11 @@ class SettingsNotificationScreen extends StatelessWidget {
             centerTitle: true,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             elevation: 0,
-            iconTheme: settings.darkMode? null : IconThemeData(color: Color(0xFF1A1D1E)),
+            iconTheme: settings.darkMode? null : const IconThemeData(color: Color(0xFF1A1D1E)),
           ),
           body: ResponsiveSafeArea(builder: (context, height, width) {
             return Container(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 40,
                 left: 20,
                 right: 20,
@@ -68,7 +68,7 @@ class SettingsNotificationScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(
@@ -96,7 +96,7 @@ class SettingsNotificationScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(
@@ -124,7 +124,7 @@ class SettingsNotificationScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(
@@ -152,7 +152,7 @@ class SettingsNotificationScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(

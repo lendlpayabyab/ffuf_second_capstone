@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../api/pseudo_service.dart';
 import '../models/company_info.dart';
@@ -26,23 +25,27 @@ class HomeScreen extends StatelessWidget {
             body: ResponsiveSafeArea(builder: (context, height, width) {
               return Container(
                 //height: height,
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   top: 20,
                 ),
                 child: SingleChildScrollView(
+                  physics: const NeverScrollableScrollPhysics(),
                   child: Column(
                     children: [
                       HomeTopBar(width: width),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       HomeSearchBar(width: width),
+                      const SizedBox(
+                        height: 15,
+                      ),
                       HomePopularView(
                         width: width,
                         companyList: companyList,
                       ),
                       Transform(
-                        transform: Matrix4.translationValues(0, -75, 0),
+                        transform: Matrix4.translationValues(0, -60, 0),
                         child: HomeRecentView(
                           height: height,
                           width: width,
@@ -58,7 +61,7 @@ class HomeScreen extends StatelessWidget {
         } else {
           return ResponsiveSafeArea(
             builder: (context, height, width) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             },
