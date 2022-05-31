@@ -1,9 +1,18 @@
+import 'package:ffuf_second_capstone/screens/settings_notifications_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import './screens/splash_screen.dart';
+import './models/tab_manager.dart';
+import './models/settings.dart';
+import './screens/main_screen.dart';
+import './app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (_) => Settings(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,14 +21,33 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Job Tinder',
-      theme: ThemeData(
-        fontFamily: 'Poppins',
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.cyan).copyWith(secondary: Color(0xFF4CA6A8)),
-      ),
-      themeMode: ThemeMode.light, // todo: make switchable in settings
+      title: 'Job Grindr',
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: Provider.of<Settings>(context).darkMode ? ThemeMode.dark : ThemeMode.light,
       home: SplashScreen(),
-      routes: {},
+      routes: {
+        MainScreen.routeName: (context) => MainScreen(),
+        MainApp.routeName: (context) => MainApp(),
+        SettingsNotificationScreen.routeName : (context) => SettingsNotificationScreen(),
+      },
+    );
+  }
+}
+
+class MainApp extends StatelessWidget {
+  const MainApp({Key? key}) : super(key: key);
+  static const routeName = '/main_app';
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => TabManager(),
+        ),
+      ],
+      child: MainScreen(),
     );
   }
 }
