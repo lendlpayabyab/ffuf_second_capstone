@@ -1,12 +1,13 @@
-import 'package:ffuf_second_capstone/screens/settings_notifications_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './screens/splash_screen.dart';
-import './models/tab_manager.dart';
-import './models/settings.dart';
-import './screens/main_screen.dart';
-import './app_theme.dart';
+import 'package:ffuf_second_capstone/screens/splash_screen.dart';
+import 'package:ffuf_second_capstone/change_notifiers/tab_manager.dart';
+import 'package:ffuf_second_capstone/change_notifiers/settings.dart';
+import 'package:ffuf_second_capstone/screens/main_screen.dart';
+import 'package:ffuf_second_capstone/app_theme.dart';
+import 'package:ffuf_second_capstone/screens/root_screen.dart';
+import 'package:ffuf_second_capstone/screens/settings_notifications_screen.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         MainScreen.routeName: (context) => MainScreen(),
         MainApp.routeName: (context) => MainApp(),
         SettingsNotificationScreen.routeName : (context) => SettingsNotificationScreen(),
+        RootScreen.routeName : (context) => RootScreen(),
       },
     );
   }
@@ -47,7 +49,7 @@ class MainApp extends StatelessWidget {
           create: (_) => TabManager(),
         ),
       ],
-      child: MainScreen(),
+      child: RootScreen(),
     );
   }
 }

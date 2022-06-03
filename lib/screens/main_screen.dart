@@ -1,10 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import './home_screen.dart';
-import './messages_screen.dart';
-import './profile_screen.dart';
-import './settings_screen.dart';
-import '../custom/job_grindr_icons.dart';
+import 'package:provider/provider.dart';
+
+import 'package:ffuf_second_capstone/change_notifiers/tab_manager.dart';
+import 'package:ffuf_second_capstone/widgets/main_screen_bottomnavbar.dart';
+import 'package:ffuf_second_capstone/screens/home_screen.dart';
+import 'package:ffuf_second_capstone/screens/messages_screen.dart';
+import 'package:ffuf_second_capstone/screens/profile_screen.dart';
+import 'package:ffuf_second_capstone/screens/settings_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -16,85 +18,69 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
 
-  int _selectedIndex = 0;
   PageController? _pageController;
+
+  double xOffset = 0;
+  double yOffset = 0;
+  double scaleFactor = 1;
+  bool isDrawerOpen = false;
+
 
   @override
   void initState() {
-    super.initState();
     _pageController = PageController();
+    super.initState();
   }
 
   @override
   void dispose() {
-    _pageController!.dispose();
+    _pageController?.dispose();
     super.dispose();
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-      //
-      //
-      //using this page controller you can make beautiful animation effects
-      _pageController!.animateToPage(index,
-          duration: Duration(milliseconds: 500), curve: Curves.decelerate);
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      body: SizedBox.expand(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() => _selectedIndex = index);
-          },
-          children: <Widget>[
-            HomeScreen(),
-            MessagesScreen(),
-            ProfileScreen(),
-            SettingsScreen(),
-          ],
-        ),
-      ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30.5),
-          topRight: Radius.circular(30.5),
-        ),
-        child: BottomNavigationBar(
-          selectedLabelStyle: TextStyle(
-            fontFamily: 'Poppins',
+    return AnimatedContainer(
+      transform: Matrix4.translationValues(xOffset, yOffset, 0)..scale(scaleFactor),
+      duration: const Duration(milliseconds: 250,),
+      child: Scaffold(
+        extendBody: true,
+        body: SizedBox.expand(
+          child: PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              Provider.of<TabManager>(context, listen: false).goToTab(index);
+            },
+            children: [
+              HomeScreen(
+                onMenuTap: (){
+                  setState((){
+                    if(isDrawerOpen) {
+                      xOffset= 0;
+                      yOffset = 0;
+                      scaleFactor = 1;
+                      isDrawerOpen = false;
+                    }
+                    else {
+                      xOffset= MediaQuery.of(context).size.width * 0.8;
+                      yOffset = MediaQuery.of(context).size.height * 0.1;
+                      scaleFactor = 0.8;
+                      isDrawerOpen = true;
+                    }
+                  });
+                },
+              ),
+              const MessagesScreen(),
+              const ProfileScreen(),
+              const SettingsScreen(),
+            ],
           ),
-          unselectedItemColor: Theme.of(context).colorScheme.primary,
-          selectedItemColor: Theme.of(context).colorScheme.secondary,
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(JobGrindrIcons.home),
-              label: 'Home',
-              backgroundColor: Theme.of(context).colorScheme.tertiary,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(JobGrindrIcons.speechBubble),
-              label: 'Messages',
-              backgroundColor: Theme.of(context).colorScheme.tertiary,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(JobGrindrIcons.profile),
-              label: 'Profile',
-              backgroundColor: Theme.of(context).colorScheme.tertiary,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(JobGrindrIcons.settings),
-              label: 'Settings',
-              backgroundColor: Theme.of(context).colorScheme.tertiary,
-            ),
-          ],
+        ),
+        bottomNavigationBar: MainScreenBottomNavBar(
+          onTap: () {
+            _pageController!.animateToPage(Provider.of<TabManager>(context, listen: false).selectedTab,
+                duration: const Duration(milliseconds: 250), curve: Curves.decelerate);
+          },
         ),
       ),
     );

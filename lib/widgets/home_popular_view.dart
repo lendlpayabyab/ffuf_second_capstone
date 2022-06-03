@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/company_info.dart';
-import '../widgets/popular_job_card_builder.dart';
+import 'package:ffuf_second_capstone/models/company_info.dart';
+import 'package:ffuf_second_capstone/screens/job_details_screen.dart';
+import 'package:ffuf_second_capstone/widgets/popular_job_card_builder.dart';
 
 class HomePopularView extends StatefulWidget {
   final double width;
@@ -34,26 +35,31 @@ class _HomePopularViewState extends State<HomePopularView> {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return SizedBox(
       height: 293,
       width: widget.width,
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Popular Jobs',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: textTheme.titleLarge,
                 ),
                 TextButton(
                   // todo : enable functionality
                   onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                  ),
                   child: Text(
                     'Show All',
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: textTheme.labelSmall,
                   ),
                 ),
               ],
@@ -63,20 +69,20 @@ class _HomePopularViewState extends State<HomePopularView> {
             transform: Matrix4.translationValues(0, -20, 0),
             height: 235,
             child: ListView.separated(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 25,
                 bottom: 50,
                 left: 20,
                 right: 20,
               ),
               shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
                     showModalBottomSheet(
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50),
@@ -89,18 +95,19 @@ class _HomePopularViewState extends State<HomePopularView> {
                           heightFactor: 0.8,
                           child: Column(
                             children: [
-                              SizedBox(
-                                height: 10,
-                              ),
+                              const SizedBox(height: 10),
                               Container(
                                 height: 4,
                                 width: 80,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFE1E1E1),
+                                  color: const Color(0xFFE1E1E1),
                                   borderRadius: BorderRadius.circular(2),
                                 ),
                               ),
-                              // todo : job listing view as child
+                              JobDetailsScreen(
+                                jobListing: jobListings[index],
+                                companyList: widget.companyList,
+                              ),
                             ],
                           ),
                         );
@@ -112,11 +119,7 @@ class _HomePopularViewState extends State<HomePopularView> {
                   ),
                 );
               },
-              separatorBuilder: (context, index) {
-                return SizedBox(
-                  width: 20,
-                );
-              },
+              separatorBuilder: (context, index) => const SizedBox(width: 20),
               itemCount: jobListings.length,
             ),
           ),

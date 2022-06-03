@@ -1,4 +1,4 @@
-part of './company_info.dart';
+part of 'package:ffuf_second_capstone/models/company_info.dart';
 
 class CompanyReviews {
   final String position;
