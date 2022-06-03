@@ -1,18 +1,21 @@
-part of '../models/message_thread.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'message_item.freezed.dart';
+part 'message_item.g.dart';
 
 enum Sender {
   me,
   you,
 }
 
-class MessageItem {
-  final String message;
-  final DateTime timeStamp;
-  final Sender sender;
+@Freezed()
+class MessageItem with _$MessageItem {
 
-  MessageItem({
-    required this.message,
-    required this.sender,
-    required this.timeStamp,
-  });
+  factory MessageItem({
+    required String message,
+    required DateTime timeStamp,
+    required Sender sender,
+}) = _MessageItem;
+
+  factory MessageItem.fromJson(Map<String, Object?> json) => _$MessageItemFromJson(json);
 }

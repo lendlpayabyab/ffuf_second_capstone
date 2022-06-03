@@ -1,11 +1,16 @@
-part '../models/message_item.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class MessageThread {
-  final String contactName;
-  final List<MessageItem> messageItem;
+import '../models/message_item.dart';
 
-  MessageThread({
-    required this.contactName,
-    required this.messageItem,
-  });
+part 'message_thread.freezed.dart';
+part 'message_thread.g.dart';
+
+@Freezed(makeCollectionsUnmodifiable: false)
+class MessageThread with _$MessageThread {
+  factory MessageThread({
+    required String contactName,
+    required List<MessageItem> messageItem,
+}) = _MessageThread;
+
+  factory MessageThread.fromJson(Map<String, Object?> json) => _$MessageThreadFromJson(json);
 }

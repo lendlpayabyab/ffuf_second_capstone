@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeTopBar extends StatelessWidget {
+  final Function onButtonTap;
   final double width;
 
   const HomeTopBar({
     Key? key,
     required this.width,
+    required this.onButtonTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       width: width,
       height: 55,
@@ -20,7 +25,7 @@ class HomeTopBar extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
+              color: colorScheme.secondary,
               borderRadius: const BorderRadius.all(
                 Radius.circular(12),
               ),
@@ -28,8 +33,9 @@ class HomeTopBar extends StatelessWidget {
             width: 44,
             height: 44,
             child: IconButton(
-              // todo : app drawer for this button
-              onPressed: () {},
+              onPressed: () {
+                onButtonTap();
+              },
               icon: SvgPicture.asset('assets/custom_svg_icons/sidebar.svg'),
             ),
           ),

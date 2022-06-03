@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-
-import '../widgets/text_builder.dart';
 
 enum AuthMode { Signup, Login }
 

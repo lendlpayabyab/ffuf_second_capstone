@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import '../change_notifiers/settings.dart';
-import '../responsive_safe_area.dart';
+import 'package:ffuf_second_capstone/change_notifiers/settings.dart';
+import 'package:ffuf_second_capstone/responsive_safe_area.dart';
 
 class SettingsNotificationScreen extends StatelessWidget {
   const SettingsNotificationScreen({Key? key}) : super(key: key);
@@ -13,6 +13,10 @@ class SettingsNotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Consumer<Settings>(
       builder: (context, settings, child) {
         return Scaffold(
@@ -23,12 +27,14 @@ class SettingsNotificationScreen extends StatelessWidget {
             ),
             title: Text(
               'Notifications',
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: textTheme.bodyLarge,
             ),
             centerTitle: true,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             elevation: 0,
-            iconTheme: settings.darkMode? null : const IconThemeData(color: Color(0xFF1A1D1E)),
+            iconTheme: settings.darkMode
+                ? null
+                : const IconThemeData(color: Color(0xFF1A1D1E)),
           ),
           body: ResponsiveSafeArea(builder: (context, height, width) {
             return Container(
@@ -51,16 +57,17 @@ class SettingsNotificationScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   'New posts',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: textTheme.bodyLarge,
                                 ),
                                 Text(
                                   'Get notified for new post updates',
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: textTheme.bodySmall,
                                 ),
                               ],
                             ),
                             CupertinoSwitch(
-                              activeColor: Theme.of(context).colorScheme.secondary,
+                              activeColor:
+                                  colorScheme.secondary,
                               value: settings.newPost,
                               onChanged: (_) {
                                 settings.toggleNewPost();
@@ -68,9 +75,7 @@ class SettingsNotificationScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -79,16 +84,17 @@ class SettingsNotificationScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   'Got hired',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: textTheme.bodyLarge,
                                 ),
                                 Text(
                                   'Get notified for getting hired',
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: textTheme.bodySmall,
                                 ),
                               ],
                             ),
                             CupertinoSwitch(
-                              activeColor: Theme.of(context).colorScheme.secondary,
+                              activeColor:
+                                  colorScheme.secondary,
                               value: settings.gotHired,
                               onChanged: (_) {
                                 settings.toggleGotHired();
@@ -96,9 +102,7 @@ class SettingsNotificationScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -107,16 +111,17 @@ class SettingsNotificationScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   'Got rejected',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: textTheme.bodyLarge,
                                 ),
                                 Text(
                                   'Get notified for getting rejected',
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: textTheme.bodySmall,
                                 ),
                               ],
                             ),
                             CupertinoSwitch(
-                              activeColor: Theme.of(context).colorScheme.secondary,
+                              activeColor:
+                                  colorScheme.secondary,
                               value: settings.getRejected,
                               onChanged: (_) {
                                 settings.toggleGetRejected();
@@ -124,9 +129,7 @@ class SettingsNotificationScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -135,16 +138,17 @@ class SettingsNotificationScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   'Messages',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: textTheme.bodyLarge,
                                 ),
                                 Text(
                                   'Get notified for getting new messages',
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: textTheme.bodySmall,
                                 ),
                               ],
                             ),
                             CupertinoSwitch(
-                              activeColor: Theme.of(context).colorScheme.secondary,
+                              activeColor:
+                                  colorScheme.secondary,
                               value: settings.message,
                               onChanged: (_) {
                                 settings.toggleMessage();
@@ -152,9 +156,7 @@ class SettingsNotificationScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -163,16 +165,17 @@ class SettingsNotificationScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   'Calls',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: textTheme.bodyLarge,
                                 ),
                                 Text(
                                   'Get notified for getting calls',
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: textTheme.bodySmall,
                                 ),
                               ],
                             ),
                             CupertinoSwitch(
-                              activeColor: Theme.of(context).colorScheme.secondary,
+                              activeColor:
+                                  colorScheme.secondary,
                               value: settings.call,
                               onChanged: (_) {
                                 settings.toggleCall();

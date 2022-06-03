@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../api/pseudo_service.dart';
-import '../models/company_info.dart';
-import '../responsive_safe_area.dart';
-import '../widgets/home_popular_view.dart';
-import '../widgets/home_top_bar.dart';
-import '../widgets/home_search_bar.dart';
-import '../widgets/home_recent_view.dart';
+import 'package:ffuf_second_capstone/api/pseudo_service.dart';
+import 'package:ffuf_second_capstone/models/company_info.dart';
+import 'package:ffuf_second_capstone/responsive_safe_area.dart';
+import 'package:ffuf_second_capstone/widgets/home_popular_view.dart';
+import 'package:ffuf_second_capstone/widgets/home_top_bar.dart';
+import 'package:ffuf_second_capstone/widgets/home_search_bar.dart';
+import 'package:ffuf_second_capstone/widgets/home_recent_view.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  final Function onMenuTap;
+
+  HomeScreen({
+    Key? key,
+    required this.onMenuTap,
+  }) : super(key: key);
 
   final pseudoService = PseudoService();
 
@@ -25,21 +30,20 @@ class HomeScreen extends StatelessWidget {
             body: ResponsiveSafeArea(builder: (context, height, width) {
               return Container(
                 //height: height,
-                padding: const EdgeInsets.only(
-                  top: 20,
-                ),
+                padding: const EdgeInsets.only(top: 20),
                 child: SingleChildScrollView(
                   physics: const NeverScrollableScrollPhysics(),
                   child: Column(
                     children: [
-                      HomeTopBar(width: width),
-                      const SizedBox(
-                        height: 15,
+                      HomeTopBar(
+                        width: width,
+                        onButtonTap: () {
+                          onMenuTap();
+                        },
                       ),
+                      const SizedBox(height: 15),
                       HomeSearchBar(width: width),
-                      const SizedBox(
-                        height: 15,
-                      ),
+                      const SizedBox(height: 15),
                       HomePopularView(
                         width: width,
                         companyList: companyList,

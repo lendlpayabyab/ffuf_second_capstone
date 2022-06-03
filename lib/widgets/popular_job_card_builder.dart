@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../models/company_info.dart';
+import 'package:ffuf_second_capstone/models/company_info.dart';
 
 class PopularJobCardBuilder extends StatelessWidget {
   final JobListing jobListing;
@@ -14,12 +14,15 @@ class PopularJobCardBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       padding: const EdgeInsets.all(15),
       height: 160,
       width: 260,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.tertiary,
+        color: colorScheme.tertiary,
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [
           BoxShadow(
@@ -49,12 +52,10 @@ class PopularJobCardBuilder extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+                  const SizedBox(height: 5),
                   Text(
                     jobListing.companyName,
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: textTheme.labelSmall,
                   ),
                 ],
               ),
@@ -63,28 +64,26 @@ class PopularJobCardBuilder extends StatelessWidget {
                 icon: Icon(
                   CupertinoIcons.heart,
                   size: 20,
-                  color: Theme.of(context).colorScheme.primary,
+                  color: colorScheme.primary,
                 ),
               ),
             ],
           ),
           Text(
             jobListing.position,
-            style: Theme.of(context).textTheme.titleSmall,
+            style: textTheme.titleSmall,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 '${NumberFormat('\$#,##0.00').format(jobListing.salary)}/m',
-                style: Theme.of(context).textTheme.labelLarge,
+                style: textTheme.labelLarge,
               ),
-              const SizedBox(
-                width: 5,
-              ),
+              const SizedBox(width: 5),
               Text(
                 jobListing.location,
-                style: Theme.of(context).textTheme.labelSmall,
+                style: textTheme.labelSmall,
               ),
             ],
           )

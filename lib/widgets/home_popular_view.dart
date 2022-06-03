@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/company_info.dart';
-import '../widgets/popular_job_card_builder.dart';
+import 'package:ffuf_second_capstone/models/company_info.dart';
+import 'package:ffuf_second_capstone/screens/job_details_screen.dart';
+import 'package:ffuf_second_capstone/widgets/popular_job_card_builder.dart';
 
 class HomePopularView extends StatefulWidget {
   final double width;
@@ -34,6 +35,8 @@ class _HomePopularViewState extends State<HomePopularView> {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return SizedBox(
       height: 293,
       width: widget.width,
@@ -46,7 +49,7 @@ class _HomePopularViewState extends State<HomePopularView> {
               children: [
                 Text(
                   'Popular Jobs',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: textTheme.titleLarge,
                 ),
                 TextButton(
                   // todo : enable functionality
@@ -56,7 +59,7 @@ class _HomePopularViewState extends State<HomePopularView> {
                   ),
                   child: Text(
                     'Show All',
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: textTheme.labelSmall,
                   ),
                 ),
               ],
@@ -92,9 +95,7 @@ class _HomePopularViewState extends State<HomePopularView> {
                           heightFactor: 0.8,
                           child: Column(
                             children: [
-                              const SizedBox(
-                                height: 10,
-                              ),
+                              const SizedBox(height: 10),
                               Container(
                                 height: 4,
                                 width: 80,
@@ -103,7 +104,10 @@ class _HomePopularViewState extends State<HomePopularView> {
                                   borderRadius: BorderRadius.circular(2),
                                 ),
                               ),
-                              // todo : job listing view as child
+                              JobDetailsScreen(
+                                jobListing: jobListings[index],
+                                companyList: widget.companyList,
+                              ),
                             ],
                           ),
                         );
@@ -115,11 +119,7 @@ class _HomePopularViewState extends State<HomePopularView> {
                   ),
                 );
               },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  width: 20,
-                );
-              },
+              separatorBuilder: (context, index) => const SizedBox(width: 20),
               itemCount: jobListings.length,
             ),
           ),

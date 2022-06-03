@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
-import '../change_notifiers/tab_manager.dart';
+import 'package:ffuf_second_capstone/change_notifiers/tab_manager.dart';
 
 class MainScreenBottomNavBar extends StatelessWidget {
   final Function onTap;
@@ -11,11 +11,14 @@ class MainScreenBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final colorScheme = Theme.of(context).colorScheme;
+
     const double borderRadius = 30.5;
 
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.tertiary,
+        color: colorScheme.tertiary,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(borderRadius),
           topRight: Radius.circular(borderRadius),
@@ -77,6 +80,9 @@ class _SelectedIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     const double defaultIconHeight = 20;
     const double selectedIconHeight = 20;
 
@@ -97,15 +103,12 @@ class _SelectedIcon extends StatelessWidget {
             mainAxisAlignment:
                 (isSelected) ? MainAxisAlignment.end : MainAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               SvgPicture.asset(
                 image,
                 height: (isSelected) ? selectedIconHeight : defaultIconHeight,
-                color: (isSelected)
-                    ? Theme.of(context).colorScheme.secondary
-                    : Theme.of(context).colorScheme.primary,
+                color:
+                    (isSelected) ? colorScheme.secondary : colorScheme.primary,
               ),
               SizedBox(
                 height: (isSelected) ? 17 : 5,
@@ -113,15 +116,15 @@ class _SelectedIcon extends StatelessWidget {
               (isSelected)
                   ? SvgPicture.asset(
                       'assets/custom_svg_icons/selection.svg',
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: colorScheme.secondary,
                       fit: BoxFit.cover,
                     )
                   : Text(
                       label,
-                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                            color: Theme.of(context).colorScheme.primary,
-                            letterSpacing: 0,
-                          ),
+                      style: textTheme.labelSmall?.copyWith(
+                        color: colorScheme.primary,
+                        letterSpacing: 0,
+                      ),
                     ),
             ],
           ),

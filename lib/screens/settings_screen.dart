@@ -2,22 +2,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../change_notifiers/settings.dart';
-import '../responsive_safe_area.dart';
-import '../screens/settings_notifications_screen.dart';
+import 'package:ffuf_second_capstone/change_notifiers/settings.dart';
+import 'package:ffuf_second_capstone/responsive_safe_area.dart';
+import 'package:ffuf_second_capstone/screens/settings_notifications_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Consumer<Settings>(
       builder: (context, settings, child) {
         return Scaffold(
           appBar: AppBar(
             title: Text(
               'Settings',
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: textTheme.bodyLarge,
             ),
             centerTitle: true,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -39,14 +43,14 @@ class SettingsScreen extends StatelessWidget {
                         InkWell(
                           child: Text(
                             'Notifications',
-                            style: Theme.of(context).textTheme.bodyLarge,
+                            style: textTheme.bodyLarge,
                           ),
                           onTap: () {
                             Navigator.of(context).pushNamed(SettingsNotificationScreen.routeName);
                           },
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 20
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,16 +60,16 @@ class SettingsScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   'Dark mode',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: textTheme.bodyLarge,
                                 ),
                                 Text(
                                   'Enable dark theme',
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: textTheme.bodySmall,
                                 ),
                               ],
                             ),
                             CupertinoSwitch(
-                              activeColor: Theme.of(context).colorScheme.secondary,
+                              activeColor: colorScheme.secondary,
                               value: settings.darkMode,
                               onChanged: (_) {
                                 settings.toggleDarkMode();

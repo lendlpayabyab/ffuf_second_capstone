@@ -3,21 +3,38 @@
     {
       "name": "Spotify",
       "companyLogoUrl": "assets/company_logos/spotify.png",
+      "companyDescription" : "Sample About Company",
       "reviews": [
         {
-          "position": "",
-          "yearsOfExp": 0,
-          "title": "",
-          "description": "",
-          "rating": 0,
+          "position": "Sample",
+          "yearsOfExp": 2,
+          "title": "Sample Title",
+          "description": "Sample review description",
+          "rating": 5,
           "pros": [
-            "",
-            "",
-            ""
+            "Pro 1",
+            "Pro 2",
+            "Pro 3"
           ],
           "cons": [
-            "",
-            ""
+            "Con 1",
+            "Con 2"
+          ]
+        },
+        {
+          "position": "Sample",
+          "yearsOfExp": 3,
+          "title": "Sample Title",
+          "description": "Sample review description",
+          "rating": 2,
+          "pros": [
+            "Pro 1",
+            "Pro 2",
+            "Pro 3"
+          ],
+          "cons": [
+            "Con 1",
+            "Con 2"
           ]
         }
       ],
@@ -87,21 +104,22 @@
     {
       "name": "Facebook",
       "companyLogoUrl": "assets/company_logos/facebook.png",
+      "companyDescription" : "Sample About Company",
       "reviews": [
         {
-          "position": "",
-          "yearsOfExp": 0,
-          "title": "",
-          "description": "",
-          "rating": 0,
+          "position": "Sample",
+          "yearsOfExp": 2,
+          "title": "Sample Title",
+          "description": "Sample review description",
+          "rating": 4,
           "pros": [
-            "",
-            "",
-            ""
+            "Pro 1",
+            "Pro 2",
+            "Pro 3"
           ],
           "cons": [
-            "",
-            ""
+            "Con 1",
+            "Con 2"
           ]
         }
       ],
@@ -171,21 +189,22 @@
     {
       "name": "Dribbble",
       "companyLogoUrl": "assets/company_logos/dribbble.png",
+      "companyDescription" : "Sample About Company",
       "reviews": [
         {
-          "position": "",
-          "yearsOfExp": 0,
-          "title": "",
-          "description": "",
-          "rating": 0,
+          "position": "Sample",
+          "yearsOfExp": 4,
+          "title": "Sample Title",
+          "description": "Sample review description",
+          "rating": 3,
           "pros": [
-            "",
-            "",
-            ""
+            "Pro 1",
+            "Pro 2",
+            "Pro 3"
           ],
           "cons": [
-            "",
-            ""
+            "Con 1",
+            "Con 2"
           ]
         }
       ],
@@ -208,7 +227,7 @@
             "Know the principal of animation and you can create high prtotypes",
             "Must know about these apps: Figma,Xd & Sketch"
           ],
-          "jobDescription": "",
+          "jobDescription": "Sample Description",
           "responsibilities": [
             "",
             ""
@@ -225,21 +244,38 @@
     {
       "name": "Google",
       "companyLogoUrl": "assets/company_logos/google.png",
+      "companyDescription" : "Sample About Company",
       "reviews": [
         {
-          "position": "",
-          "yearsOfExp": 0,
-          "title": "",
-          "description": "",
-          "rating": 0,
+          "position": "Sample",
+          "yearsOfExp": 2,
+          "title": "Sample Title",
+          "description": "Sample review description",
+          "rating": 3,
           "pros": [
-            "",
-            "",
-            ""
+            "Pro 1",
+            "Pro 2",
+            "Pro 3"
           ],
           "cons": [
-            "",
-            ""
+            "Con 1",
+            "Con 2"
+          ]
+        },
+        {
+          "position": "Sample",
+          "yearsOfExp": 3,
+          "title": "Sample Title",
+          "description": "Sample review description",
+          "rating": 4,
+          "pros": [
+            "Pro 1",
+            "Pro 2",
+            "Pro 3"
+          ],
+          "cons": [
+            "Con 1",
+            "Con 2"
           ]
         }
       ],

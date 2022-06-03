@@ -1,5 +1,5 @@
-part './company_reviews.dart';
-part './job_listing.dart';
+part 'package:ffuf_second_capstone/models/company_reviews.dart';
+part 'package:ffuf_second_capstone/models/job_listing.dart';
 
 
 class Company {
@@ -21,8 +21,8 @@ class Company {
     final companyReviews = <CompanyReviews>[];
     final jobListing = <JobListing>[];
 
-    if (json['companyReviews'] != null) {
-      json['companyReviews'].forEach((v) {
+    if (json['reviews'] != null) {
+      json['reviews'].forEach((v) {
         companyReviews.add(CompanyReviews.fromJson(v));
       });
     }

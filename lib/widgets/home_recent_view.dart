@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../models/company_info.dart';
-import '../widgets/recent_job_card_builder.dart';
+import 'package:ffuf_second_capstone/models/company_info.dart';
+import 'package:ffuf_second_capstone/widgets/recent_job_card_builder.dart';
+import 'package:ffuf_second_capstone/screens/job_details_screen.dart';
 
 class HomeRecentView extends StatefulWidget {
   final double width;
@@ -23,30 +24,33 @@ class _HomeRecentViewState extends State<HomeRecentView> {
   final jobListings = <JobListing>[];
 
   @override
-  void initState(){
+  void initState() {
     for (var element in widget.companyList) {
-      for (var subElement in element.jobListing){
-          jobListings.add(subElement);
+      for (var subElement in element.jobListing) {
+        jobListings.add(subElement);
       }
     }
-    jobListings.sort((a,b) => a.datePosted.compareTo(b.datePosted));
+    jobListings.sort((a, b) => a.datePosted.compareTo(b.datePosted));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+
+    final textTheme = Theme.of(context).textTheme;
+
     return SizedBox(
       width: widget.width,
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20,),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Recent Postings',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: textTheme.titleLarge,
                 ),
                 TextButton(
                   // todo : enable functionality
@@ -54,19 +58,20 @@ class _HomeRecentViewState extends State<HomeRecentView> {
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                   ),
-                  child: Text('Show All',
-                    style: Theme.of(context).textTheme.labelSmall,
+                  child: Text(
+                    'Show All',
+                    style: textTheme.labelSmall,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            transform: Matrix4.translationValues(0, -15, 0),
+            transform: Matrix4.translationValues(0, -5, 0),
             height: widget.height - 500 < 1 ? 200 : widget.height - 500,
             child: ListView.separated(
               padding: const EdgeInsets.only(
-                top: 25,
+                top: 15,
                 left: 20,
                 right: 20,
                 bottom: 30,
@@ -101,7 +106,10 @@ class _HomeRecentViewState extends State<HomeRecentView> {
                                   borderRadius: BorderRadius.circular(2),
                                 ),
                               ),
-                              // todo : job listing view as child
+                              JobDetailsScreen(
+                                jobListing: jobListings[index],
+                                companyList: widget.companyList,
+                              ),
                             ],
                           ),
                         );
@@ -111,9 +119,7 @@ class _HomeRecentViewState extends State<HomeRecentView> {
                   child: RecentJobCardBuilder(jobListing: jobListings[index]),
                 );
               },
-              separatorBuilder: (context, index){
-                return const SizedBox(height: 20,);
-              },
+              separatorBuilder: (context, index) => const SizedBox(height: 20),
               itemCount: jobListings.length,
             ),
           ),
